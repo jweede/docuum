@@ -44,3 +44,16 @@ features = ["termination"] # [tag:ctrlc_term]
 [dependencies.serde]
 version = "1"
 features = ["derive"]
+
+[package.metadata.deb]
+extended-description = """\
+Docuum performs least recently used (LRU) eviction of Docker images to keep the disk usage below a given threshold.
+"""
+depends = []
+assets = [
+    ["target/release/docuum", "usr/local/bin/", "755"],
+]
+maintainer-scripts = "debian/"
+systemd-units = [
+    { unit-name = "docuum" }
+]
