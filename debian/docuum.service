@@ -4,8 +4,8 @@ After=docker.service
 Wants=docker.service
 
 [Service]
-Environment='DOCUUM_ARGS="--threshold 60%"'
-ExecStart=/usr/local/bin/docuum ${DOCUUM_ARGS}
+Environment='THRESHOLD=60%'
+ExecStart=/usr/local/bin/docuum --threshold ${THRESHOLD}
 Restart=on-failure
 
 [Install]
